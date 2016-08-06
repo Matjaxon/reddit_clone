@@ -1,0 +1,41 @@
+<% action = action_type == :new ? posts_url : post_url(@post) %>
+<% method_add = action_type == :new ? "" : '<input type="hidden" name="_method" value="patch">'.html_safe %>
+
+<form action="<%= action %>" method="post">
+<%= method_add %>
+<%= auth_token %>
+
+<label>
+  Title:
+  <input type="text" name="post[title]" value="<%= @post.title%>">
+</label>
+
+<label>
+  Url:
+  <input type="text" name="post[url]" value="<%= @post.url%>">
+</label>
+
+<label>
+  Content:
+  <textarea name="post[content]"><%= @post.content %></textarea>
+</label>
+
+<label>
+  Subs:
+  <input type="hidden" name="post[sub_ids][]" value="">
+
+  <% Sub.all.each do |sub| %>
+    <label><%= sub.title %>
+      <input type="checkbox"
+            value="<%= sub.id %>"
+            name="post[sub_ids][]"
+            <%= "checked" if @post.sub_ids.include?(sub.id) %>>
+    </label>
+  <% end %>
+</label>
+
+<input type="submit" value=" <%= action_type == :new ? "Create Post" : "Edit Post" %>">
+
+<%= link_to "Cancel", action_type == :new ? posts_url : post_url(@post) %>
+
+</form>

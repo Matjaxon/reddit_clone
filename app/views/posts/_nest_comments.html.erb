@@ -1,0 +1,12 @@
+<% comment_array.each do |comment| %>
+  <% if comment.is_a?(Array) %>
+    <%= render "nest_comments", comment_array: comment, indent: indent+1 %>
+  <% else %>
+    <p><% indent.times do %>
+      &nbsp&nbsp&nbsp&nbsp&nbsp
+    <% end %><%= comment.author.username %></p>
+    <p><% indent.times do %>
+      &nbsp&nbsp&nbsp&nbsp&nbsp
+    <% end %><%= comment.content %></p>
+  <% end %>
+<% end %>

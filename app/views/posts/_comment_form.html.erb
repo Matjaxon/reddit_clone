@@ -1,0 +1,18 @@
+<% action = action_type == :new ? (params[:controller] == "posts" ? post_comments_url(params[:id]) : post_comments_url(params[:post_id])) : post_comment_url(params[:post_id], comment) %>
+<% method_add = action_type == :new ? "" : '<input type="hidden" name="_method" value="patch">'.html_safe %>
+
+<form action="<%= action %>" method="post">
+  <%= method_add %>
+  <%= auth_token %>
+  <input type="hidden" name="comment[parent_comment_id]" value="<%= params[:parent_comment_id] ? params[:parent_comment_id] : nil %>">
+
+  <label>
+    Comment:
+    <textarea name="comment[content]"><%= comment.content if action_type == :edit %></textarea>
+  </label>
+
+  <input type="submit" value=" <%= action_type == :new ? "Post Comment" : "Edit Comment" %>">
+
+  <%= link_to "Cancel", params[:controller] == "comments" ? post_url(params[:post_id]) : post_url(@post) %>
+
+</form>

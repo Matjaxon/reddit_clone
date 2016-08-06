@@ -1,0 +1,22 @@
+<% action = action_type == :new ? subs_url : sub_url(@sub) %>
+<% method_add = action_type == :new ? "" : '<input type="hidden" name="_method" value="patch">'.html_safe %>
+
+<form action="<%= action %>" method="post">
+<%= method_add %>
+<%= auth_token %>
+
+<label>
+  Title:
+  <input type="text" name="sub[title]" value="<%= @sub.title%>">
+</label>
+
+<label>
+  Description:
+  <textarea name="sub[description]"><%= @sub.description %></textarea>
+</label>
+
+<input type="submit" value=" <%= action_type == :new ? "Create Sub" : "Edit Sub" %>">
+
+<%= link_to "Cancel", action_type == :new ? subs_url : sub_url(@sub) %>
+
+</form>

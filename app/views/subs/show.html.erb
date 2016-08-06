@@ -1,0 +1,7 @@
+<%= @sub.title %>
+
+<%=bold(@sub.description)%>
+
+<% @sub.posts.each do |post| %>
+  <%= link_to post.title, post_url(post) %>
+<% end %>
