@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: comments
+#
+#  id                :integer          not null, primary key
+#  content           :text             not null
+#  author_id         :integer          not null
+#  post_id           :integer          not null
+#  parent_comment_id :integer
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
 class Comment < ActiveRecord::Base
   validates :author_id, :content, :post_id, presence: true
 
@@ -6,7 +19,6 @@ class Comment < ActiveRecord::Base
 
   def comments_array(comments)
     return [self] if comments.none? { |comment| self.id == comment.parent_comment_id }
-    puts "made it this far"
     results = []
     results << self
     nested_results = []

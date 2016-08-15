@@ -6,14 +6,14 @@
 <%= auth_token %>
 
 <label>
-  Title:
+  Title:<br>
   <input type="text" name="sub[title]" value="<%= @sub.title%>">
-</label>
+</label><br><br>
 
 <label>
-  Description:
+  Description:<br>
   <textarea name="sub[description]"><%= @sub.description %></textarea>
-</label>
+</label><br><br>
 
 <input type="submit" value=" <%= action_type == :new ? "Create Sub" : "Edit Sub" %>">
 

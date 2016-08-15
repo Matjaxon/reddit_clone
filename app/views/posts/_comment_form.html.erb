@@ -7,9 +7,9 @@
   <input type="hidden" name="comment[parent_comment_id]" value="<%= params[:parent_comment_id] ? params[:parent_comment_id] : nil %>">
 
   <label>
-    Comment:
+    Comment:<br>
     <textarea name="comment[content]"><%= comment.content if action_type == :edit %></textarea>
-  </label>
+  </label><br>
 
   <input type="submit" value=" <%= action_type == :new ? "Post Comment" : "Edit Comment" %>">
 

@@ -1,19 +1,19 @@
 <h1><%= @post.title %></h1>
 
 
-<div style="background-color:lightblue"><%=bold(@post.content)%></div>
+<div style="background-color:#F7EEA3"><%=bold(@post.content)%></div>
 
-<h2> Comments </h2>
+<h2> Comments:</h2>
 
 <% @top_comments.each do |top_comment| %>
   <% comments = top_comment.comments_array(@all_comments)%>
     <%= render "nest_comments", comment_array: comments, indent: 0 %>
-  <%= link_to 'Reply', {controller: "comments", action: "new", post_id: @post.id, parent_comment_id: top_comment.id}, method: :get%>
 <% end %>
 
+<h2>Add a New Comment</h2>
 <%= render 'comment_form', comment: Comment.new, action_type: :new %>
 
-<h2>Related Subs</h2>
+<h2>Related Subs:</h2>
 <% @post.subs.each do |sub| %>
   <div><%= link_to sub.title, sub_url(sub) %></div>
 <% end %>

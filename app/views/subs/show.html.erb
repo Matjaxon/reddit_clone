@@ -1,7 +1,14 @@
-<%= @sub.title %>
+<h1><%= @sub.title.titleize %></h1>
 
-<%=bold(@sub.description)%>
+<h5>About this sub:</h5>
+<p><%= @sub.description %></p>
 
+<br>
+<h3>Posts:</h3>
 <% @sub.posts.each do |post| %>
   <%= link_to post.title, post_url(post) %>
+  <p>Posted by: <%= post.author.username %></p>
+  <br>
 <% end %>
+
+<%= link_to "View all subs", subs_url %>

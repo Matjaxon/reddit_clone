@@ -2,11 +2,18 @@
   <% if comment.is_a?(Array) %>
     <%= render "nest_comments", comment_array: comment, indent: indent+1 %>
   <% else %>
-    <p><% indent.times do %>
+    <p><strong><% indent.times do %>
       &nbsp&nbsp&nbsp&nbsp&nbsp
-    <% end %><%= comment.author.username %></p>
+    <% end %><%= comment.author.username %></strong></p>
     <p><% indent.times do %>
       &nbsp&nbsp&nbsp&nbsp&nbsp
     <% end %><%= comment.content %></p>
+    <p><% indent.times do %>
+      &nbsp&nbsp&nbsp&nbsp&nbsp
+    <% end %>
+      <%= link_to "Reply", {controller: "comments", action: "new",
+        post_id: @post.id, parent_comment_id: comment.id},
+        method: :get %></p>
+
   <% end %>
 <% end %>
