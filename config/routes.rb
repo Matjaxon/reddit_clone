@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  root to: 'subs#index'
+
 end

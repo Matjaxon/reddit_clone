@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  before_action :enforce_login, except: [:index, :show]
+
   def new
     @comment = Comment.new
   end
@@ -40,5 +42,13 @@ class CommentsController < ApplicationController
   private
   def comment_params
     params.require(:comment).permit(:content, :parent_comment_id)
+  end
+
+  def enforce_login
+    unless current_user
+      flash[:errors] ||= []
+      flash[:errors] << "Must be logged in to post or edit a comment"
+      redirect_to new_session_url
+    end
   end
 end

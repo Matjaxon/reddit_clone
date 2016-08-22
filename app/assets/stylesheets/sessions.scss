@@ -1,3 +1,14 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-form-input {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.auth-form {
+  font-size: 20px;
+  margin: 20px;
+  padding: 10px;
+}

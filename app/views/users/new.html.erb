@@ -1,18 +1,18 @@
-<h1>Sign Up</h1>
+<h1 class='page-title'>Sign Up</h1>
 
-<form action="<%= users_url %>" method="POST">
+<form class="auth-form" action="<%= users_url %>" method="POST">
   <%= auth_token %>
 
   <label>
     Username:
-    <input type="text" name="user[username]">
+    <input class="user-form-input" ype="text" name="user[username]">
   </label>
 
   <label>
     Password:
-    <input type="password" name="user[password]">
+    <input class="user-form-input" type="password" name="user[password]">
   </label>
 
-  <input type="submit" value="Create">
+  <input class="btn btn-confirm" type="submit" value="Create">
 
 </form>

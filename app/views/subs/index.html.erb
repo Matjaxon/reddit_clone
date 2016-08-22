@@ -1,10 +1,20 @@
-<h1>All Subs</h1>
+<h1 class="page-title">All Subs</h1>
 
-<% @subs.each do |sb| %>
-  <%= link_to sb.title.titleize, sub_url(sb) %>
-  <br>
-<% end %>
+<section class="cf">
+  <% @subs.each do |sb| %>
+    <div class="sub">
+      <div class="post-count">
+        <%= sb.posts.count %>
+        <p class="post-tag">posts</p>
+      </div>
+      <div class="sub-link">
+        <% last_post = sb.posts.order(updated_at: :desc).limit(1).first %>
+        <%= link_to sb.title.titleize, sub_url(sb) %>
+        <p class="updated">Last Updated: <%= last_post.updated_at.to_formatted_s(:long) %></p>
+      </div>
+    </div>
+  <% end %>
 
-<br><br>
+  <strong><%= link_to "Create a New Sub", new_sub_url %></strong>
 
-<strong><%= link_to "Create a New Sub", new_sub_url %><strong>
+</section>

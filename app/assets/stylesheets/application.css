@@ -14,6 +14,160 @@
  *= require_self
  */
 
-* {
-  font-family: sans-serif;
+/* RESET */
+
+html, body, header, footer, div, img,
+ul, li, span, h1, h2, h3, h4, h5, button, input,
+p {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
+  display: inherit;
+  font-family: 'Raleway', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* GENERAL STYLING */
+
+form label {
+  padding: 5px;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+section {
+  margin: 20px;
+}
+
+.nav {
+  width: 98%;
+  border-bottom: 3px solid black;
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+
+.navbar {
+  display: block;
+  background-color: 'aquamarine';
+  font-size: 28px;
+  color: "red";
+  padding: 10px;
+}
+
+.nav-logo {
+  font-size: 48px;
+  font-weight: bold;
+  display: block;
+  float: left;
+  text-decoration: none;
+  color: blue;
+}
+
+.nav-login {
+  float: right;
+  display: block;
+  width: 40%;
+  text-align: right;
+  height: 100px;
+  vertical-align: middle;
+  padding-top: 10px;
+}
+
+.nav-user {
+  display: block;
+}
+
+.logout-btn {
+  background: lightgray;
+  float: right;
+}
+
+.cf:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: bold;
+  display: block;
+  margin: 20px;
+  padding: 10px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+}
+
+.btn {
+  text-align:center;
+  border: 1px solid black;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 10px 0;
+  padding: 10px;
+}
+
+.btn-confirm {
+  background-color: #2d2df1;
+  color: white;
+}
+
+.flash {
+  margin: 20px;
+  padding: 10px 25px;
+  display: block;
+  border-radius: 20px;
+}
+
+.flash-fail {
+  background-color: #fd5a5a;
+}
+
+.form-input {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.form {
+  font-size: 20px;
+  margin: 20px;
+  padding: 10px;
 }

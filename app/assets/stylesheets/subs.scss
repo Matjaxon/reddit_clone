@@ -1,3 +1,44 @@
 // Place all the styles related to the Subs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.sub {
+  width: 80%;
+  display:block;
+  min-height: 70px;
+}
+
+.post-count {
+  width: 15%;
+  max-width: 100px;
+  display:block;
+  float:left;
+  box-sizing: border-box;
+  padding: 10px;
+  text-align: center;
+}
+
+.post-tag {
+  font-weight: lighter;
+  font-size: 14px;
+}
+
+.sub-link {
+  width: 80%;
+  padding: 10px;
+  display: block;
+  float: left;
+  box-sizing: border-box;
+}
+
+.updated {
+  font-style: italic;
+  display:block;
+}
+
+
+.about {
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 15px;
+}
