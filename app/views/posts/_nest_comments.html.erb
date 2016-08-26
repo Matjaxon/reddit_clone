@@ -2,18 +2,47 @@
   <% if comment.is_a?(Array) %>
     <%= render "nest_comments", comment_array: comment, indent: indent+1 %>
   <% else %>
-    <p><strong><% indent.times do %>
-      &nbsp&nbsp&nbsp&nbsp&nbsp
-    <% end %><%= comment.author.username %></strong></p>
-    <p><% indent.times do %>
-      &nbsp&nbsp&nbsp&nbsp&nbsp
-    <% end %><%= comment.content %></p>
-    <p><% indent.times do %>
-      &nbsp&nbsp&nbsp&nbsp&nbsp
-    <% end %>
+    <% whitespace = '&nbsp&nbsp&nbsp&nbsp&nbsp'.html_safe %>
+
+    <p><strong>
+      <% indent.times do %>
+        <%= whitespace %>
+      <% end %>
+      <%= comment.author.username %>
+    </strong></p>
+
+    <p>
+      <% indent.times do %>
+        <%= whitespace %>
+      <% end %>
+      <%= comment.content %>
+    </p>
+
+    <p>
+      <% indent.times do %>
+        <%= whitespace %>
+      <% end %>
       <%= link_to "Reply", {controller: "comments", action: "new",
         post_id: @post.id, parent_comment_id: comment.id},
-        method: :get %></p>
+        method: :get, class: "links" %>
+      <% if current_user == comment.author %>
+        <% indent.times do %>
+          <%= whitespace %>
+        <% end %>
+        <span class="links-box">
+          <%= link_to "Edit", {controller: "comments", action: "edit",
+            post_id: @post.id, id: comment.id, method: :get},
+            class: "edit-comment" %>
+
+          <% indent.times do %>
+            <%= whitespace %>
+          <% end %>
+          <%= button_to "Delete", {:controller => :comments,
+          :action => 'destroy', :id => comment.id, post_id: @post.id},
+          :method => :delete, class: "delete-comment" %>
+        </span>
+      </p>
+      <% end %>
 
   <% end %>
 <% end %>

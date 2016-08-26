@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment.author_id = current_user.id
     @comment.post_id = params[:post_id]
     if @comment.save
-      redirect_to post_url(@comment.post_id)
+      redirect_to post_url(@comment.post)
     else
       flash.now[:errors] ||= []
       flash.now[:errors] << @comment.errors.full_messages
@@ -19,9 +19,14 @@ class CommentsController < ApplicationController
     end
   end
 
+  def show
+    fail
+  end
+
   def destroy
-    @comment = Comment.find_by(params[:id])
+    @comment = Comment.find_by(id: params[:id])
     @comment.destroy
+    redirect_to post_url(@comment.post)
   end
 
   def edit

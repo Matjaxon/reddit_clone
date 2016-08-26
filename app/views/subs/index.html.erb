@@ -10,7 +10,8 @@
       <div class="sub-link">
         <% last_post = sb.posts.order(updated_at: :desc).limit(1).first %>
         <%= link_to sb.title.titleize, sub_url(sb) %>
-        <p class="updated">Last Updated: <%= last_post.updated_at.to_formatted_s(:long) %></p>
+        <p class="updated">Last Updated: <%= last_post ?
+        last_post.updated_at.to_formatted_s(:long) : sb.updated_at.to_formatted_s(:long) %></p>
       </div>
     </div>
   <% end %>

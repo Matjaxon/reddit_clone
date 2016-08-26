@@ -1,3 +1,5 @@
+<% action_type ||= :edit %>
+<% comment ||= @comment %>
 <% action = action_type == :new ? (params[:controller] == "posts" ? post_comments_url(params[:id]) : post_comments_url(params[:post_id])) : post_comment_url(params[:post_id], comment) %>
 <% method_add = action_type == :new ? "" : '<input type="hidden" name="_method" value="patch">'.html_safe %>
 

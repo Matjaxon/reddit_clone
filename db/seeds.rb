@@ -6,9 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(username: "Matt", password: "password")
-User.create!(username: "Melissa", password: "password")
-User.create!(username: "Phil", password: "password")
+User.create!(username: "matt", password: "password")
+User.create!(username: "test", password: "password")
 
 30.times do
   User.create!(username: Faker::Internet.user_name, password: Faker::Internet.password)

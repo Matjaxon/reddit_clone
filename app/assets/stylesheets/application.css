@@ -16,6 +16,10 @@
 
 /* RESET */
 
+* {
+  z-index: 1;
+}
+
 html, body, header, footer, div, img,
 ul, li, span, h1, h2, h3, h4, h5, button, input,
 p {
@@ -30,8 +34,15 @@ p {
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
+  background-color: #cee3f8;
+  background-size: auto;
   display: inherit;
+
   font-family: 'Raleway', sans-serif;
+}
+
+textarea, input {
+  background: white;
 }
 
 ul {
@@ -71,6 +82,15 @@ input[type="submit"] {
 
 section {
   margin: 20px;
+}
+
+.snoo-logo {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 30%;
+  opacity: 0.7;
+  z-index: 0;
 }
 
 .nav {
@@ -170,4 +190,8 @@ section {
   font-size: 20px;
   margin: 20px;
   padding: 10px;
+}
+
+#logout {
+  background: lightgray;
 }
